@@ -1,0 +1,18 @@
+// Machine-local: route Maven Central through Google's mirror (avoids 429s).
+def MIRROR = 'https://maven-central.storage-download.googleapis.com/maven2/'
+def fix = { RepositoryHandler repos ->
+    repos.configureEach { r ->
+        if (r instanceof MavenArtifactRepository &&
+            r.url.toString().contains('repo.maven.apache.org')) {
+            r.url = MIRROR
+        }
+    }
+}
+settingsEvaluated { s ->
+    fix(s.pluginManagement.repositories)
+    fix(s.dependencyResolutionManagement.repositories)
+}
+allprojects {
+    fix(buildscript.repositories)
+    fix(repositories)
+}
