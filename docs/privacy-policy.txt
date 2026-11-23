@@ -1,0 +1,43 @@
+PORI (পড়ি) – গোপনীয়তা নীতি
+
+সর্বশেষ হালনাগাদ: ২৩ নভেম্বর ২০২৬ · ডেভেলপার: NuAYan
+
+সংক্ষেপে
+
+PORI কোনো ব্যক্তিগত তথ্য সংগ্রহ, সংরক্ষণ বা বিক্রি করে না। কোনো অ্যাকাউন্ট, বিজ্ঞাপন বা অ্যানালিটিক্স নেই।
+
+ফোনে যা সংরক্ষিত থাকে
+
+বুকমার্ক, সর্বশেষ পড়ার স্থান, পড়ার সময় ও অগ্রগতি, কুইজের ফলাফল, সেটিংস, এবং আপনি ডাউনলোড করলে তিলাওয়াতের অডিও ও তাফসীর — সবকিছু শুধু আপনার ফোনেই থাকে। এগুলো আমাদের কাছে বা অন্য কোথাও পাঠানো হয় না। অ্যাপ মুছে ফেললে এসব তথ্যও মুছে যায়।
+
+ইন্টারনেট ব্যবহার
+
+তিলাওয়াত শুনতে বা কিছু তাফসীর প্রথমবার খুলতে অ্যাপটি Quran.com-এর সার্ভার (verses.quran.com, api.quran.com) থেকে কনটেন্ট ডাউনলোড করে। যেকোনো ওয়েব অনুরোধের মতো এই সার্ভারগুলো আপনার IP ঠিকানা দেখতে পারে; সে বিষয়ে Quran.com-এর নিজস্ব গোপনীয়তা নীতি প্রযোজ্য। অ্যাপটি এসব অনুরোধে কোনো ব্যক্তিগত তথ্য পাঠায় না।
+
+অনুমতি (Permissions)
+
+অ্যাপটি শুধু ইন্টারনেট (INTERNET) অনুমতি ব্যবহার করে।
+
+শিশুদের গোপনীয়তা
+
+অ্যাপটি সব বয়সের জন্য উপযোগী এবং কারো কাছ থেকে, শিশুসহ, কোনো ব্যক্তিগত তথ্য সংগ্রহ করে না।
+
+পরিবর্তন ও যোগাযোগ
+
+এই নীতি পরিবর্তন হলে এই পাতায় হালনাগাদ করা হবে। প্রশ্ন থাকলে যোগাযোগ করুন: murad.evg21@gmail.com
+
+────────────
+
+PORI – Privacy Policy
+
+Last updated: 23 November 2026 · Developer: NuAYan
+
+PORI does not collect, store or sell any personal data. There are no accounts, ads or analytics.
+
+Bookmarks, reading position and time, progress, quiz results, settings, and any recitation audio or tafsir you download are stored only on your device and are never sent to us or anyone else. Uninstalling the app deletes them.
+
+To play recitations or open some tafsirs for the first time, the app downloads content from Quran.com servers (verses.quran.com, api.quran.com). Like any web request, these servers can see your IP address; Quran.com's own privacy policy applies. The app sends no personal information in these requests.
+
+The app only uses the INTERNET permission. It is suitable for all ages and collects no personal information from anyone, including children.
+
+Changes to this policy will be posted on this page. Contact: murad.evg21@gmail.com
