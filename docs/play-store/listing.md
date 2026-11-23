@@ -6,7 +6,7 @@
 - **Category:** Education (alternative: Books & Reference)
 - **Tags:** Quran, Islam, Education
 - **Contains ads:** No · **In-app purchases:** No
-- **Privacy policy URL:** _(public link to `docs/privacy-policy.html`)_
+- **Privacy policy URL:** https://sites.google.com/view/pori-privacy-policy/home
 - **Contact email:** murad.evg21@gmail.com
 
 ## Short description (≤80)
@@ -67,5 +67,5 @@
 - [ ] Written permissions for translation, tafsir, word-by-word and audio
 - [ ] Scholar review of lessons and quizzes
 - [x] Contact email filled in
-- [ ] Privacy policy hosted at a public URL
+- [x] Privacy policy hosted at a public URL (Google Sites)
 - [ ] Personal developer accounts: closed test with ≥12 testers for 14 days before production
