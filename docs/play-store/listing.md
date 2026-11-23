@@ -7,6 +7,7 @@
 - **Tags:** Quran, Islam, Education
 - **Contains ads:** No · **In-app purchases:** No
 - **Privacy policy URL:** _(public link to `docs/privacy-policy.html`)_
+- **Contact email:** murad.evg21@gmail.com
 
 ## Short description (≤80)
 বাংলা অনুবাদ, তাফসীর, তিলাওয়াত ও তাজবীদ শিক্ষাসহ সম্পূর্ণ কুরআন — অফলাইনেও।
@@ -65,5 +66,6 @@
 ## Before submitting (see CONTENT_SOURCES.md)
 - [ ] Written permissions for translation, tafsir, word-by-word and audio
 - [ ] Scholar review of lessons and quizzes
-- [ ] Privacy policy hosted at a public URL, contact email filled in
+- [x] Contact email filled in
+- [ ] Privacy policy hosted at a public URL
 - [ ] Personal developer accounts: closed test with ≥12 testers for 14 days before production
