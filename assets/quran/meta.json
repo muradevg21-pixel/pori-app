@@ -1,0 +1,1522 @@
+{
+ "bismillah": "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
+ "sources": {
+  "arabic": {
+   "name": "Tanzil Quran Text (Uthmani, v1.1)",
+   "url": "https://tanzil.net",
+   "license": "CC BY 3.0"
+  },
+  "translation_bn": {
+   "name": "Taisirul Quran (Tawheed Publication)",
+   "via": "Quran.com API v4 (id 161)"
+  },
+  "words_bn": {
+   "name": "Quran.com word-by-word (Bengali)",
+   "via": "Quran.com API v4"
+  }
+ },
+ "surahs": [
+  {
+   "n": 1,
+   "ar": "الفاتحة",
+   "en": "Al-Fatihah",
+   "bn": "সূচনা",
+   "place": "makkah",
+   "order": 5,
+   "verses": 7,
+   "bismillah": false
+  },
+  {
+   "n": 2,
+   "ar": "البقرة",
+   "en": "Al-Baqarah",
+   "bn": "বকনা-বাছুর",
+   "place": "madinah",
+   "order": 87,
+   "verses": 286,
+   "bismillah": true
+  },
+  {
+   "n": 3,
+   "ar": "آل عمران",
+   "en": "Ali 'Imran",
+   "bn": "ইমরানের পরিবার",
+   "place": "madinah",
+   "order": 89,
+   "verses": 200,
+   "bismillah": true
+  },
+  {
+   "n": 4,
+   "ar": "النساء",
+   "en": "An-Nisa",
+   "bn": "নারী",
+   "place": "madinah",
+   "order": 92,
+   "verses": 176,
+   "bismillah": true
+  },
+  {
+   "n": 5,
+   "ar": "المائدة",
+   "en": "Al-Ma'idah",
+   "bn": "খাদ্য পরিবেশিত টেবিল",
+   "place": "madinah",
+   "order": 112,
+   "verses": 120,
+   "bismillah": true
+  },
+  {
+   "n": 6,
+   "ar": "الأنعام",
+   "en": "Al-An'am",
+   "bn": "গৃহপালিত পশু",
+   "place": "makkah",
+   "order": 55,
+   "verses": 165,
+   "bismillah": true
+  },
+  {
+   "n": 7,
+   "ar": "الأعراف",
+   "en": "Al-A'raf",
+   "bn": "উচু স্থান",
+   "place": "makkah",
+   "order": 39,
+   "verses": 206,
+   "bismillah": true
+  },
+  {
+   "n": 8,
+   "ar": "الأنفال",
+   "en": "Al-Anfal",
+   "bn": "যুদ্ধ-লব্ধ ধনসম্পদ",
+   "place": "madinah",
+   "order": 88,
+   "verses": 75,
+   "bismillah": true
+  },
+  {
+   "n": 9,
+   "ar": "التوبة",
+   "en": "At-Tawbah",
+   "bn": "অনুশোচনা",
+   "place": "madinah",
+   "order": 113,
+   "verses": 129,
+   "bismillah": false
+  },
+  {
+   "n": 10,
+   "ar": "يونس",
+   "en": "Yunus",
+   "bn": "নবী ইউনুস",
+   "place": "makkah",
+   "order": 51,
+   "verses": 109,
+   "bismillah": true
+  },
+  {
+   "n": 11,
+   "ar": "هود",
+   "en": "Hud",
+   "bn": "নবী হুদ",
+   "place": "makkah",
+   "order": 52,
+   "verses": 123,
+   "bismillah": true
+  },
+  {
+   "n": 12,
+   "ar": "يوسف",
+   "en": "Yusuf",
+   "bn": "নবী ইউসুফ",
+   "place": "makkah",
+   "order": 53,
+   "verses": 111,
+   "bismillah": true
+  },
+  {
+   "n": 13,
+   "ar": "الرعد",
+   "en": "Ar-Ra'd",
+   "bn": "বজ্রপাত",
+   "place": "madinah",
+   "order": 96,
+   "verses": 43,
+   "bismillah": true
+  },
+  {
+   "n": 14,
+   "ar": "ابراهيم",
+   "en": "Ibrahim",
+   "bn": "নবী ইবরাহীম",
+   "place": "makkah",
+   "order": 72,
+   "verses": 52,
+   "bismillah": true
+  },
+  {
+   "n": 15,
+   "ar": "الحجر",
+   "en": "Al-Hijr",
+   "bn": "পাথুরে পাহাড়",
+   "place": "makkah",
+   "order": 54,
+   "verses": 99,
+   "bismillah": true
+  },
+  {
+   "n": 16,
+   "ar": "النحل",
+   "en": "An-Nahl",
+   "bn": "মৌমাছি",
+   "place": "makkah",
+   "order": 70,
+   "verses": 128,
+   "bismillah": true
+  },
+  {
+   "n": 17,
+   "ar": "الإسراء",
+   "en": "Al-Isra",
+   "bn": "ইহুদি জাতি",
+   "place": "makkah",
+   "order": 50,
+   "verses": 111,
+   "bismillah": true
+  },
+  {
+   "n": 18,
+   "ar": "الكهف",
+   "en": "Al-Kahf",
+   "bn": "গুহা",
+   "place": "makkah",
+   "order": 69,
+   "verses": 110,
+   "bismillah": true
+  },
+  {
+   "n": 19,
+   "ar": "مريم",
+   "en": "Maryam",
+   "bn": "মারইয়াম (ঈসা নবীর মা)",
+   "place": "makkah",
+   "order": 44,
+   "verses": 98,
+   "bismillah": true
+  },
+  {
+   "n": 20,
+   "ar": "طه",
+   "en": "Taha",
+   "bn": "ত়া হা",
+   "place": "makkah",
+   "order": 45,
+   "verses": 135,
+   "bismillah": true
+  },
+  {
+   "n": 21,
+   "ar": "الأنبياء",
+   "en": "Al-Anbya",
+   "bn": "নবীগণ",
+   "place": "makkah",
+   "order": 73,
+   "verses": 112,
+   "bismillah": true
+  },
+  {
+   "n": 22,
+   "ar": "الحج",
+   "en": "Al-Hajj",
+   "bn": "হ়াজ্জ",
+   "place": "madinah",
+   "order": 103,
+   "verses": 78,
+   "bismillah": true
+  },
+  {
+   "n": 23,
+   "ar": "المؤمنون",
+   "en": "Al-Mu'minun",
+   "bn": "বিশ্বাসী",
+   "place": "makkah",
+   "order": 74,
+   "verses": 118,
+   "bismillah": true
+  },
+  {
+   "n": 24,
+   "ar": "النور",
+   "en": "An-Nur",
+   "bn": "আলো",
+   "place": "madinah",
+   "order": 102,
+   "verses": 64,
+   "bismillah": true
+  },
+  {
+   "n": 25,
+   "ar": "الفرقان",
+   "en": "Al-Furqan",
+   "bn": "মানদণ্ড",
+   "place": "makkah",
+   "order": 42,
+   "verses": 77,
+   "bismillah": true
+  },
+  {
+   "n": 26,
+   "ar": "الشعراء",
+   "en": "Ash-Shu'ara",
+   "bn": "কবি",
+   "place": "makkah",
+   "order": 47,
+   "verses": 227,
+   "bismillah": true
+  },
+  {
+   "n": 27,
+   "ar": "النمل",
+   "en": "An-Naml",
+   "bn": "পিঁপড়া",
+   "place": "makkah",
+   "order": 48,
+   "verses": 93,
+   "bismillah": true
+  },
+  {
+   "n": 28,
+   "ar": "القصص",
+   "en": "Al-Qasas",
+   "bn": "কাহিনি",
+   "place": "makkah",
+   "order": 49,
+   "verses": 88,
+   "bismillah": true
+  },
+  {
+   "n": 29,
+   "ar": "العنكبوت",
+   "en": "Al-'Ankabut",
+   "bn": "মাকড়শা",
+   "place": "makkah",
+   "order": 85,
+   "verses": 69,
+   "bismillah": true
+  },
+  {
+   "n": 30,
+   "ar": "الروم",
+   "en": "Ar-Rum",
+   "bn": "রোমান জাতি",
+   "place": "makkah",
+   "order": 84,
+   "verses": 60,
+   "bismillah": true
+  },
+  {
+   "n": 31,
+   "ar": "لقمان",
+   "en": "Luqman",
+   "bn": "এক জ্ঞানী ব্যাক্তি",
+   "place": "makkah",
+   "order": 57,
+   "verses": 34,
+   "bismillah": true
+  },
+  {
+   "n": 32,
+   "ar": "السجدة",
+   "en": "As-Sajdah",
+   "bn": "সিজদা",
+   "place": "makkah",
+   "order": 75,
+   "verses": 30,
+   "bismillah": true
+  },
+  {
+   "n": 33,
+   "ar": "الأحزاب",
+   "en": "Al-Ahzab",
+   "bn": "জোট",
+   "place": "madinah",
+   "order": 90,
+   "verses": 73,
+   "bismillah": true
+  },
+  {
+   "n": 34,
+   "ar": "سبإ",
+   "en": "Saba",
+   "bn": "রানী সাবা/শেবা",
+   "place": "makkah",
+   "order": 58,
+   "verses": 54,
+   "bismillah": true
+  },
+  {
+   "n": 35,
+   "ar": "فاطر",
+   "en": "Fatir",
+   "bn": "আদি স্রষ্টা",
+   "place": "makkah",
+   "order": 43,
+   "verses": 45,
+   "bismillah": true
+  },
+  {
+   "n": 36,
+   "ar": "يس",
+   "en": "Ya-Sin",
+   "bn": "ইয়াসীন",
+   "place": "makkah",
+   "order": 41,
+   "verses": 83,
+   "bismillah": true
+  },
+  {
+   "n": 37,
+   "ar": "الصافات",
+   "en": "As-Saffat",
+   "bn": "সারিবদ্ধভাবে দাঁড়ানো",
+   "place": "makkah",
+   "order": 56,
+   "verses": 182,
+   "bismillah": true
+  },
+  {
+   "n": 38,
+   "ar": "ص",
+   "en": "Sad",
+   "bn": "আরবি বর্ণ সাদ",
+   "place": "makkah",
+   "order": 38,
+   "verses": 88,
+   "bismillah": true
+  },
+  {
+   "n": 39,
+   "ar": "الزمر",
+   "en": "Az-Zumar",
+   "bn": "দলবদ্ধ জনতা",
+   "place": "makkah",
+   "order": 59,
+   "verses": 75,
+   "bismillah": true
+  },
+  {
+   "n": 40,
+   "ar": "غافر",
+   "en": "Ghafir",
+   "bn": "ক্ষমাকারী",
+   "place": "makkah",
+   "order": 60,
+   "verses": 85,
+   "bismillah": true
+  },
+  {
+   "n": 41,
+   "ar": "فصلت",
+   "en": "Fussilat",
+   "bn": "সুস্পষ্ট বিবরণ",
+   "place": "makkah",
+   "order": 61,
+   "verses": 54,
+   "bismillah": true
+  },
+  {
+   "n": 42,
+   "ar": "الشورى",
+   "en": "Ash-Shuraa",
+   "bn": "পরামর্শ",
+   "place": "makkah",
+   "order": 62,
+   "verses": 53,
+   "bismillah": true
+  },
+  {
+   "n": 43,
+   "ar": "الزخرف",
+   "en": "Az-Zukhruf",
+   "bn": "সোনাদানা",
+   "place": "makkah",
+   "order": 63,
+   "verses": 89,
+   "bismillah": true
+  },
+  {
+   "n": 44,
+   "ar": "الدخان",
+   "en": "Ad-Dukhan",
+   "bn": "ধোঁয়া",
+   "place": "makkah",
+   "order": 64,
+   "verses": 59,
+   "bismillah": true
+  },
+  {
+   "n": 45,
+   "ar": "الجاثية",
+   "en": "Al-Jathiyah",
+   "bn": "নতজানু",
+   "place": "makkah",
+   "order": 65,
+   "verses": 37,
+   "bismillah": true
+  },
+  {
+   "n": 46,
+   "ar": "الأحقاف",
+   "en": "Al-Ahqaf",
+   "bn": "বালুর পাহাড়",
+   "place": "makkah",
+   "order": 66,
+   "verses": 35,
+   "bismillah": true
+  },
+  {
+   "n": 47,
+   "ar": "محمد",
+   "en": "Muhammad",
+   "bn": "নবী মুহাম্মদ",
+   "place": "madinah",
+   "order": 95,
+   "verses": 38,
+   "bismillah": true
+  },
+  {
+   "n": 48,
+   "ar": "الفتح",
+   "en": "Al-Fath",
+   "bn": "বিজয়",
+   "place": "madinah",
+   "order": 111,
+   "verses": 29,
+   "bismillah": true
+  },
+  {
+   "n": 49,
+   "ar": "الحجرات",
+   "en": "Al-Hujurat",
+   "bn": "আবাস",
+   "place": "madinah",
+   "order": 106,
+   "verses": 18,
+   "bismillah": true
+  },
+  {
+   "n": 50,
+   "ar": "ق",
+   "en": "Qaf",
+   "bn": "কাফ",
+   "place": "makkah",
+   "order": 34,
+   "verses": 45,
+   "bismillah": true
+  },
+  {
+   "n": 51,
+   "ar": "الذاريات",
+   "en": "Adh-Dhariyat",
+   "bn": "বিক্ষেপকারী বাতাস",
+   "place": "makkah",
+   "order": 67,
+   "verses": 60,
+   "bismillah": true
+  },
+  {
+   "n": 52,
+   "ar": "الطور",
+   "en": "At-Tur",
+   "bn": "পাহাড়",
+   "place": "makkah",
+   "order": 76,
+   "verses": 49,
+   "bismillah": true
+  },
+  {
+   "n": 53,
+   "ar": "النجم",
+   "en": "An-Najm",
+   "bn": "তারা",
+   "place": "makkah",
+   "order": 23,
+   "verses": 62,
+   "bismillah": true
+  },
+  {
+   "n": 54,
+   "ar": "القمر",
+   "en": "Al-Qamar",
+   "bn": "চাঁদ",
+   "place": "makkah",
+   "order": 37,
+   "verses": 55,
+   "bismillah": true
+  },
+  {
+   "n": 55,
+   "ar": "الرحمن",
+   "en": "Ar-Rahman",
+   "bn": "পরম করুণাময়",
+   "place": "madinah",
+   "order": 97,
+   "verses": 78,
+   "bismillah": true
+  },
+  {
+   "n": 56,
+   "ar": "الواقعة",
+   "en": "Al-Waqi'ah",
+   "bn": "নিশ্চিত ঘটনা",
+   "place": "makkah",
+   "order": 46,
+   "verses": 96,
+   "bismillah": true
+  },
+  {
+   "n": 57,
+   "ar": "الحديد",
+   "en": "Al-Hadid",
+   "bn": "লোহা",
+   "place": "madinah",
+   "order": 94,
+   "verses": 29,
+   "bismillah": true
+  },
+  {
+   "n": 58,
+   "ar": "المجادلة",
+   "en": "Al-Mujadila",
+   "bn": "অনুযোগকারিণী",
+   "place": "madinah",
+   "order": 105,
+   "verses": 22,
+   "bismillah": true
+  },
+  {
+   "n": 59,
+   "ar": "الحشر",
+   "en": "Al-Hashr",
+   "bn": "সমাবেশ",
+   "place": "madinah",
+   "order": 101,
+   "verses": 24,
+   "bismillah": true
+  },
+  {
+   "n": 60,
+   "ar": "الممتحنة",
+   "en": "Al-Mumtahanah",
+   "bn": "নারী, যাকে পরীক্ষা করা হবে",
+   "place": "madinah",
+   "order": 91,
+   "verses": 13,
+   "bismillah": true
+  },
+  {
+   "n": 61,
+   "ar": "الصف",
+   "en": "As-Saf",
+   "bn": "সারিবদ্ধ সৈন্যদল",
+   "place": "madinah",
+   "order": 109,
+   "verses": 14,
+   "bismillah": true
+  },
+  {
+   "n": 62,
+   "ar": "الجمعة",
+   "en": "Al-Jumu'ah",
+   "bn": "সম্মেলন/শুক্রবার",
+   "place": "madinah",
+   "order": 110,
+   "verses": 11,
+   "bismillah": true
+  },
+  {
+   "n": 63,
+   "ar": "المنافقون",
+   "en": "Al-Munafiqun",
+   "bn": "ভণ্ড বিশ্বাসী",
+   "place": "madinah",
+   "order": 104,
+   "verses": 11,
+   "bismillah": true
+  },
+  {
+   "n": 64,
+   "ar": "التغابن",
+   "en": "At-Taghabun",
+   "bn": "মোহ অপসারণ",
+   "place": "madinah",
+   "order": 108,
+   "verses": 18,
+   "bismillah": true
+  },
+  {
+   "n": 65,
+   "ar": "الطلاق",
+   "en": "At-Talaq",
+   "bn": "তালাক",
+   "place": "madinah",
+   "order": 99,
+   "verses": 12,
+   "bismillah": true
+  },
+  {
+   "n": 66,
+   "ar": "التحريم",
+   "en": "At-Tahrim",
+   "bn": "নিষিদ্ধকরণ",
+   "place": "madinah",
+   "order": 107,
+   "verses": 12,
+   "bismillah": true
+  },
+  {
+   "n": 67,
+   "ar": "الملك",
+   "en": "Al-Mulk",
+   "bn": "সার্বভৌম কর্তৃত্ব",
+   "place": "makkah",
+   "order": 77,
+   "verses": 30,
+   "bismillah": true
+  },
+  {
+   "n": 68,
+   "ar": "القلم",
+   "en": "Al-Qalam",
+   "bn": "কলম",
+   "place": "makkah",
+   "order": 2,
+   "verses": 52,
+   "bismillah": true
+  },
+  {
+   "n": 69,
+   "ar": "الحاقة",
+   "en": "Al-Haqqah",
+   "bn": "নিশ্চিত সত্য",
+   "place": "makkah",
+   "order": 78,
+   "verses": 52,
+   "bismillah": true
+  },
+  {
+   "n": 70,
+   "ar": "المعارج",
+   "en": "Al-Ma'arij",
+   "bn": "উন্নয়নের সোপান",
+   "place": "makkah",
+   "order": 79,
+   "verses": 44,
+   "bismillah": true
+  },
+  {
+   "n": 71,
+   "ar": "نوح",
+   "en": "Nuh",
+   "bn": "নবী নূহ",
+   "place": "makkah",
+   "order": 71,
+   "verses": 28,
+   "bismillah": true
+  },
+  {
+   "n": 72,
+   "ar": "الجن",
+   "en": "Al-Jinn",
+   "bn": "জিন সম্প্রদায়",
+   "place": "makkah",
+   "order": 40,
+   "verses": 28,
+   "bismillah": true
+  },
+  {
+   "n": 73,
+   "ar": "المزمل",
+   "en": "Al-Muzzammil",
+   "bn": "বস্ত্রাচ্ছাদনকারী",
+   "place": "makkah",
+   "order": 3,
+   "verses": 20,
+   "bismillah": true
+  },
+  {
+   "n": 74,
+   "ar": "المدثر",
+   "en": "Al-Muddaththir",
+   "bn": "পোশাক পরিহিত",
+   "place": "makkah",
+   "order": 4,
+   "verses": 56,
+   "bismillah": true
+  },
+  {
+   "n": 75,
+   "ar": "القيامة",
+   "en": "Al-Qiyamah",
+   "bn": "পুনরুত্থান",
+   "place": "makkah",
+   "order": 31,
+   "verses": 40,
+   "bismillah": true
+  },
+  {
+   "n": 76,
+   "ar": "الانسان",
+   "en": "Al-Insan",
+   "bn": "মানবজাতি",
+   "place": "madinah",
+   "order": 98,
+   "verses": 31,
+   "bismillah": true
+  },
+  {
+   "n": 77,
+   "ar": "المرسلات",
+   "en": "Al-Mursalat",
+   "bn": "প্রেরিত পুরুষ",
+   "place": "makkah",
+   "order": 33,
+   "verses": 50,
+   "bismillah": true
+  },
+  {
+   "n": 78,
+   "ar": "النبإ",
+   "en": "An-Naba",
+   "bn": "মহাসংবাদ",
+   "place": "makkah",
+   "order": 80,
+   "verses": 40,
+   "bismillah": true
+  },
+  {
+   "n": 79,
+   "ar": "النازعات",
+   "en": "An-Nazi'at",
+   "bn": "প্রচেষ্টাকারী",
+   "place": "makkah",
+   "order": 81,
+   "verses": 46,
+   "bismillah": true
+  },
+  {
+   "n": 80,
+   "ar": "عبس",
+   "en": "'Abasa",
+   "bn": "সে ভ্রু কুঁচকালো",
+   "place": "makkah",
+   "order": 24,
+   "verses": 42,
+   "bismillah": true
+  },
+  {
+   "n": 81,
+   "ar": "التكوير",
+   "en": "At-Takwir",
+   "bn": "অন্ধকারাচ্ছন্ন",
+   "place": "makkah",
+   "order": 7,
+   "verses": 29,
+   "bismillah": true
+  },
+  {
+   "n": 82,
+   "ar": "الإنفطار",
+   "en": "Al-Infitar",
+   "bn": "বিদীর্ণ করা",
+   "place": "makkah",
+   "order": 82,
+   "verses": 19,
+   "bismillah": true
+  },
+  {
+   "n": 83,
+   "ar": "المطففين",
+   "en": "Al-Mutaffifin",
+   "bn": "প্রতারণা করা",
+   "place": "makkah",
+   "order": 86,
+   "verses": 36,
+   "bismillah": true
+  },
+  {
+   "n": 84,
+   "ar": "الإنشقاق",
+   "en": "Al-Inshiqaq",
+   "bn": "খণ্ড-বিখণ্ডকরণ",
+   "place": "makkah",
+   "order": 83,
+   "verses": 25,
+   "bismillah": true
+  },
+  {
+   "n": 85,
+   "ar": "البروج",
+   "en": "Al-Buruj",
+   "bn": "নক্ষত্রপুঞ্জ",
+   "place": "makkah",
+   "order": 27,
+   "verses": 22,
+   "bismillah": true
+  },
+  {
+   "n": 86,
+   "ar": "الطارق",
+   "en": "At-Tariq",
+   "bn": "রাতের আগন্তুক",
+   "place": "makkah",
+   "order": 36,
+   "verses": 17,
+   "bismillah": true
+  },
+  {
+   "n": 87,
+   "ar": "الأعلى",
+   "en": "Al-A'la",
+   "bn": "সর্বোন্নত",
+   "place": "makkah",
+   "order": 8,
+   "verses": 19,
+   "bismillah": true
+  },
+  {
+   "n": 88,
+   "ar": "الغاشية",
+   "en": "Al-Ghashiyah",
+   "bn": "বিহ্বলকর ঘটনা",
+   "place": "makkah",
+   "order": 68,
+   "verses": 26,
+   "bismillah": true
+  },
+  {
+   "n": 89,
+   "ar": "الفجر",
+   "en": "Al-Fajr",
+   "bn": "ভোরবেলা",
+   "place": "makkah",
+   "order": 10,
+   "verses": 30,
+   "bismillah": true
+  },
+  {
+   "n": 90,
+   "ar": "البلد",
+   "en": "Al-Balad",
+   "bn": "নগর",
+   "place": "makkah",
+   "order": 35,
+   "verses": 20,
+   "bismillah": true
+  },
+  {
+   "n": 91,
+   "ar": "الشمس",
+   "en": "Ash-Shams",
+   "bn": "সূর্য",
+   "place": "makkah",
+   "order": 26,
+   "verses": 15,
+   "bismillah": true
+  },
+  {
+   "n": 92,
+   "ar": "الليل",
+   "en": "Al-Layl",
+   "bn": "রাত",
+   "place": "makkah",
+   "order": 9,
+   "verses": 21,
+   "bismillah": true
+  },
+  {
+   "n": 93,
+   "ar": "الضحى",
+   "en": "Ad-Duhaa",
+   "bn": "পূর্বাহ্নের সুর্যকিরণ",
+   "place": "makkah",
+   "order": 11,
+   "verses": 11,
+   "bismillah": true
+  },
+  {
+   "n": 94,
+   "ar": "الشرح",
+   "en": "Ash-Sharh",
+   "bn": "বক্ষ প্রশস্তকরণ",
+   "place": "makkah",
+   "order": 12,
+   "verses": 8,
+   "bismillah": true
+  },
+  {
+   "n": 95,
+   "ar": "التين",
+   "en": "At-Tin",
+   "bn": "ডুমুর",
+   "place": "makkah",
+   "order": 28,
+   "verses": 8,
+   "bismillah": true
+  },
+  {
+   "n": 96,
+   "ar": "العلق",
+   "en": "Al-'Alaq",
+   "bn": "রক্তপিণ্ড",
+   "place": "makkah",
+   "order": 1,
+   "verses": 19,
+   "bismillah": true
+  },
+  {
+   "n": 97,
+   "ar": "القدر",
+   "en": "Al-Qadr",
+   "bn": "মহিমান্বিত",
+   "place": "makkah",
+   "order": 25,
+   "verses": 5,
+   "bismillah": true
+  },
+  {
+   "n": 98,
+   "ar": "البينة",
+   "en": "Al-Bayyinah",
+   "bn": "প্রমাণ",
+   "place": "madinah",
+   "order": 100,
+   "verses": 8,
+   "bismillah": true
+  },
+  {
+   "n": 99,
+   "ar": "الزلزلة",
+   "en": "Az-Zalzalah",
+   "bn": "ভূমিকম্প",
+   "place": "madinah",
+   "order": 93,
+   "verses": 8,
+   "bismillah": true
+  },
+  {
+   "n": 100,
+   "ar": "العاديات",
+   "en": "Al-'Adiyat",
+   "bn": "অভিযানকারী",
+   "place": "makkah",
+   "order": 14,
+   "verses": 11,
+   "bismillah": true
+  },
+  {
+   "n": 101,
+   "ar": "القارعة",
+   "en": "Al-Qari'ah",
+   "bn": "মহাসংকট",
+   "place": "makkah",
+   "order": 30,
+   "verses": 11,
+   "bismillah": true
+  },
+  {
+   "n": 102,
+   "ar": "التكاثر",
+   "en": "At-Takathur",
+   "bn": "প্রাচুর্যের প্রতিযোগিতা",
+   "place": "makkah",
+   "order": 16,
+   "verses": 8,
+   "bismillah": true
+  },
+  {
+   "n": 103,
+   "ar": "العصر",
+   "en": "Al-'Asr",
+   "bn": "সময়",
+   "place": "makkah",
+   "order": 13,
+   "verses": 3,
+   "bismillah": true
+  },
+  {
+   "n": 104,
+   "ar": "الهمزة",
+   "en": "Al-Humazah",
+   "bn": "পরনিন্দাকারী",
+   "place": "makkah",
+   "order": 32,
+   "verses": 9,
+   "bismillah": true
+  },
+  {
+   "n": 105,
+   "ar": "الفيل",
+   "en": "Al-Fil",
+   "bn": "হাতি",
+   "place": "makkah",
+   "order": 19,
+   "verses": 5,
+   "bismillah": true
+  },
+  {
+   "n": 106,
+   "ar": "قريش",
+   "en": "Quraysh",
+   "bn": "কুরাইশ গোত্র",
+   "place": "makkah",
+   "order": 29,
+   "verses": 4,
+   "bismillah": true
+  },
+  {
+   "n": 107,
+   "ar": "الماعون",
+   "en": "Al-Ma'un",
+   "bn": "সাহায্য সহায়তা",
+   "place": "makkah",
+   "order": 17,
+   "verses": 7,
+   "bismillah": true
+  },
+  {
+   "n": 108,
+   "ar": "الكوثر",
+   "en": "Al-Kawthar",
+   "bn": "কাউসার/প্রাচুর্য",
+   "place": "makkah",
+   "order": 15,
+   "verses": 3,
+   "bismillah": true
+  },
+  {
+   "n": 109,
+   "ar": "الكافرون",
+   "en": "Al-Kafirun",
+   "bn": "অবিশ্বাসী",
+   "place": "makkah",
+   "order": 18,
+   "verses": 6,
+   "bismillah": true
+  },
+  {
+   "n": 110,
+   "ar": "النصر",
+   "en": "An-Nasr",
+   "bn": "সাহায্য",
+   "place": "madinah",
+   "order": 114,
+   "verses": 3,
+   "bismillah": true
+  },
+  {
+   "n": 111,
+   "ar": "المسد",
+   "en": "Al-Masad",
+   "bn": "খেজুরের পাকানো (রশি)",
+   "place": "makkah",
+   "order": 6,
+   "verses": 5,
+   "bismillah": true
+  },
+  {
+   "n": 112,
+   "ar": "الإخلاص",
+   "en": "Al-Ikhlas",
+   "bn": "আন্তরিকতা",
+   "place": "makkah",
+   "order": 22,
+   "verses": 4,
+   "bismillah": true
+  },
+  {
+   "n": 113,
+   "ar": "الفلق",
+   "en": "Al-Falaq",
+   "bn": "নিশিভোর",
+   "place": "makkah",
+   "order": 20,
+   "verses": 5,
+   "bismillah": true
+  },
+  {
+   "n": 114,
+   "ar": "الناس",
+   "en": "An-Nas",
+   "bn": "মানুষ জাতি",
+   "place": "makkah",
+   "order": 21,
+   "verses": 6,
+   "bismillah": true
+  }
+ ],
+ "juz": [
+  {
+   "n": 1,
+   "start": [
+    1,
+    1
+   ],
+   "end": [
+    2,
+    141
+   ],
+   "verses": 148
+  },
+  {
+   "n": 2,
+   "start": [
+    2,
+    142
+   ],
+   "end": [
+    2,
+    252
+   ],
+   "verses": 111
+  },
+  {
+   "n": 3,
+   "start": [
+    2,
+    253
+   ],
+   "end": [
+    3,
+    92
+   ],
+   "verses": 126
+  },
+  {
+   "n": 4,
+   "start": [
+    3,
+    93
+   ],
+   "end": [
+    4,
+    23
+   ],
+   "verses": 131
+  },
+  {
+   "n": 5,
+   "start": [
+    4,
+    24
+   ],
+   "end": [
+    4,
+    147
+   ],
+   "verses": 124
+  },
+  {
+   "n": 6,
+   "start": [
+    4,
+    148
+   ],
+   "end": [
+    5,
+    81
+   ],
+   "verses": 110
+  },
+  {
+   "n": 7,
+   "start": [
+    5,
+    82
+   ],
+   "end": [
+    6,
+    110
+   ],
+   "verses": 149
+  },
+  {
+   "n": 8,
+   "start": [
+    6,
+    111
+   ],
+   "end": [
+    7,
+    87
+   ],
+   "verses": 142
+  },
+  {
+   "n": 9,
+   "start": [
+    7,
+    88
+   ],
+   "end": [
+    8,
+    40
+   ],
+   "verses": 159
+  },
+  {
+   "n": 10,
+   "start": [
+    8,
+    41
+   ],
+   "end": [
+    9,
+    92
+   ],
+   "verses": 127
+  },
+  {
+   "n": 11,
+   "start": [
+    9,
+    93
+   ],
+   "end": [
+    11,
+    5
+   ],
+   "verses": 151
+  },
+  {
+   "n": 12,
+   "start": [
+    11,
+    6
+   ],
+   "end": [
+    12,
+    52
+   ],
+   "verses": 170
+  },
+  {
+   "n": 13,
+   "start": [
+    12,
+    53
+   ],
+   "end": [
+    14,
+    52
+   ],
+   "verses": 154
+  },
+  {
+   "n": 14,
+   "start": [
+    15,
+    1
+   ],
+   "end": [
+    16,
+    128
+   ],
+   "verses": 227
+  },
+  {
+   "n": 15,
+   "start": [
+    17,
+    1
+   ],
+   "end": [
+    18,
+    74
+   ],
+   "verses": 185
+  },
+  {
+   "n": 16,
+   "start": [
+    18,
+    75
+   ],
+   "end": [
+    20,
+    135
+   ],
+   "verses": 269
+  },
+  {
+   "n": 17,
+   "start": [
+    21,
+    1
+   ],
+   "end": [
+    22,
+    78
+   ],
+   "verses": 190
+  },
+  {
+   "n": 18,
+   "start": [
+    23,
+    1
+   ],
+   "end": [
+    25,
+    20
+   ],
+   "verses": 202
+  },
+  {
+   "n": 19,
+   "start": [
+    25,
+    21
+   ],
+   "end": [
+    27,
+    55
+   ],
+   "verses": 339
+  },
+  {
+   "n": 20,
+   "start": [
+    27,
+    56
+   ],
+   "end": [
+    29,
+    45
+   ],
+   "verses": 171
+  },
+  {
+   "n": 21,
+   "start": [
+    29,
+    46
+   ],
+   "end": [
+    33,
+    30
+   ],
+   "verses": 178
+  },
+  {
+   "n": 22,
+   "start": [
+    33,
+    31
+   ],
+   "end": [
+    36,
+    27
+   ],
+   "verses": 169
+  },
+  {
+   "n": 23,
+   "start": [
+    36,
+    28
+   ],
+   "end": [
+    39,
+    31
+   ],
+   "verses": 357
+  },
+  {
+   "n": 24,
+   "start": [
+    39,
+    32
+   ],
+   "end": [
+    41,
+    46
+   ],
+   "verses": 175
+  },
+  {
+   "n": 25,
+   "start": [
+    41,
+    47
+   ],
+   "end": [
+    45,
+    37
+   ],
+   "verses": 246
+  },
+  {
+   "n": 26,
+   "start": [
+    46,
+    1
+   ],
+   "end": [
+    51,
+    30
+   ],
+   "verses": 195
+  },
+  {
+   "n": 27,
+   "start": [
+    51,
+    31
+   ],
+   "end": [
+    57,
+    29
+   ],
+   "verses": 399
+  },
+  {
+   "n": 28,
+   "start": [
+    58,
+    1
+   ],
+   "end": [
+    66,
+    12
+   ],
+   "verses": 137
+  },
+  {
+   "n": 29,
+   "start": [
+    67,
+    1
+   ],
+   "end": [
+    77,
+    50
+   ],
+   "verses": 431
+  },
+  {
+   "n": 30,
+   "start": [
+    78,
+    1
+   ],
+   "end": [
+    114,
+    6
+   ],
+   "verses": 564
+  }
+ ]
+}

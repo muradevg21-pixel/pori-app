@@ -141,11 +141,12 @@ class ProfileScreen extends ConsumerWidget {
                     max: 24,
                     onChanged: n.setBanglaFontSize,
                   ),
-                  SwitchListTile(
+                  const SwitchListTile(
                     contentPadding: EdgeInsets.zero,
-                    title: const Text('বাংলা উচ্চারণ দেখান'),
-                    value: s.showPronunciation,
-                    onChanged: n.setShowPronunciation,
+                    title: Text('বাংলা উচ্চারণ দেখান'),
+                    subtitle: Text('যাচাইকৃত উৎস যুক্ত হলে চালু হবে'),
+                    value: false,
+                    onChanged: null,
                   ),
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,
@@ -186,14 +187,21 @@ class ProfileScreen extends ConsumerWidget {
   void _showSources(BuildContext context) => showModalBottomSheet<void>(
         context: context,
         showDragHandle: true,
-        builder: (_) => const Padding(
+        builder: (_) => const SingleChildScrollView(
+          child: Padding(
           padding: EdgeInsets.fromLTRB(24, 0, 24, 32),
           child: Text(
-            'পড়ি অ্যাপের সকল কুরআন টেক্সট, অনুবাদ ও তাফসীর শুধুমাত্র '
-            'যাচাইকৃত ও লাইসেন্সপ্রাপ্ত উৎস থেকে নেওয়া হবে। '
-            'প্রতিটি উৎসের নাম, লাইসেন্স ও আলেমদের রিভিউয়ের তথ্য এখানে দেখানো হবে।',
+            'আরবি কুরআন টেক্সট: Tanzil Quran Text (Uthmani 1.1), '
+            'Tanzil Project — tanzil.net। লাইসেন্স: CC BY 3.0, '
+            'টেক্সট অপরিবর্তিত রাখা হয়েছে।\n\n'
+            'বাংলা অনুবাদ: তাইসীরুল কুরআন (তাওহীদ পাবলিকেশন্স), '
+            'Quran.com-এর মাধ্যমে।\n\n'
+            'শব্দে শব্দে অর্থ: Quran.com।\n\n'
+            'সূরা ও পারার তথ্য: Quran.com।\n\n'
+            'পড়ি অ্যাপে কোনো কুরআন টেক্সট বা অনুবাদ হাতে লেখা হয়নি।',
             style: TextStyle(height: 1.7),
           ),
+        ),
         ),
       );
 }
