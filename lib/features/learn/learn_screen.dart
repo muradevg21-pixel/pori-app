@@ -62,6 +62,10 @@ class LearnScreen extends StatelessWidget {
                         fontWeight: FontWeight.w700, fontSize: 16)),
                 subtitle: Text(sub),
                 trailing: const ComingSoonChip(),
+                onTap: () => ScaffoldMessenger.of(context)
+                  ..hideCurrentSnackBar()
+                  ..showSnackBar(SnackBar(
+                      content: Text('$title — যাচাইকৃত পাঠ শীঘ্রই আসছে'))),
               ),
             ),
             const SizedBox(height: 12),

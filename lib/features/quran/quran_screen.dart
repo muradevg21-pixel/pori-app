@@ -11,7 +11,8 @@ import 'data/quran_models.dart';
 import 'data/quran_repository.dart';
 
 class QuranScreen extends ConsumerStatefulWidget {
-  const QuranScreen({super.key});
+  const QuranScreen({super.key, this.startSearching = false});
+  final bool startSearching;
 
   @override
   ConsumerState<QuranScreen> createState() => _QuranScreenState();
@@ -19,7 +20,7 @@ class QuranScreen extends ConsumerStatefulWidget {
 
 class _QuranScreenState extends ConsumerState<QuranScreen> {
   String _query = '';
-  bool _searching = false;
+  late bool _searching = widget.startSearching;
 
   @override
   Widget build(BuildContext context) {

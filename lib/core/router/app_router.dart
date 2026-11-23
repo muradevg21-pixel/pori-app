@@ -1,3 +1,4 @@
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/bookmarks/bookmarks_screen.dart';
@@ -38,7 +39,13 @@ final appRouter = GoRouter(
           GoRoute(path: Routes.home, builder: (_, _) => const HomeScreen()),
         ]),
         StatefulShellBranch(routes: [
-          GoRoute(path: Routes.quran, builder: (_, _) => const QuranScreen()),
+          GoRoute(
+            path: Routes.quran,
+            builder: (_, state) => QuranScreen(
+              key: ValueKey(state.uri.queryParameters['search']),
+              startSearching: state.uri.queryParameters['search'] == '1',
+            ),
+          ),
         ]),
         StatefulShellBranch(routes: [
           GoRoute(path: Routes.learn, builder: (_, _) => const LearnScreen()),

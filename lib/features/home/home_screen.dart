@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () => context.go('${Routes.quran}?search=1'),
                       icon: const Icon(Icons.search_rounded),
                       tooltip: 'খুঁজুন',
                     ),

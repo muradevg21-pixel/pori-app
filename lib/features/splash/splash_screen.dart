@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/app_info.dart';
 import '../../core/router/app_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/widgets/islamic_pattern.dart';
@@ -45,6 +46,33 @@ class _SplashScreenState extends State<SplashScreen>
         child: Stack(
           children: [
             const Positioned.fill(child: IslamicPattern(opacity: 0.14, tile: 64)),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 40,
+              child: SafeArea(
+                child: FadeTransition(
+                  opacity: fade,
+                  child: Column(
+                    children: [
+                      Text('তৈরি করেছেন',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: AppColors.cream.withValues(alpha: 0.6))),
+                      const SizedBox(height: 2),
+                      const Text(AppInfo.developer,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 16,
+                              letterSpacing: 1.5,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.goldLight)),
+                    ],
+                  ),
+                ),
+              ),
+            ),
             Center(
               child: FadeTransition(
                 opacity: fade,

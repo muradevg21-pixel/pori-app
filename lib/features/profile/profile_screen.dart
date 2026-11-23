@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/app_info.dart';
 import '../../core/settings/settings_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
@@ -173,8 +174,10 @@ class ProfileScreen extends ConsumerWidget {
                 ListTile(
                   leading: Icon(Icons.info_outline_rounded, color: cs.primary),
                   title: const Text('অ্যাপ সম্পর্কে'),
-                  trailing: Text('v১.০.০',
+                  subtitle: const Text('তৈরি করেছেন ${AppInfo.developer}'),
+                  trailing: Text('v${bn(AppInfo.version)}',
                       style: TextStyle(color: cs.onSurfaceVariant)),
+                  onTap: () => _showAbout(context),
                 ),
               ],
             ),
@@ -183,6 +186,51 @@ class ProfileScreen extends ConsumerWidget {
       ),
     );
   }
+
+  void _showAbout(BuildContext context) => showDialog<void>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          icon: Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: AppColors.headerGradient,
+              border: Border.all(color: AppColors.gold, width: 1.5),
+            ),
+            child: const Center(
+              child: Text('প',
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.cream)),
+            ),
+          ),
+          title: const Text(AppInfo.name),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('সংস্করণ ${bn(AppInfo.version)}'),
+              const SizedBox(height: 12),
+              const Text('তৈরি করেছেন',
+                  style: TextStyle(fontSize: 12)),
+              const Text(AppInfo.developer,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.goldDeep)),
+              const SizedBox(height: 12),
+              const Text('কুরআন পড়ি · কুরআন শিখি',
+                  textAlign: TextAlign.center),
+            ],
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(ctx),
+                child: const Text('ঠিক আছে')),
+          ],
+        ),
+      );
 
   void _showSources(BuildContext context) => showModalBottomSheet<void>(
         context: context,
