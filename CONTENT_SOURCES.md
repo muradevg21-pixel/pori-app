@@ -20,7 +20,7 @@ qualified scholar before release.
 | Bengali pronunciation | _No verified source chosen yet_ | _TBD_ | planned | — | — |
 | Word-by-word meaning (bn) | Quran.com API v4 word translations | ⚠️ Confirm reuse terms with Quran.com before release | imported | — | — |
 | Tafsir | _TBD_ | _TBD_ | planned | — | — |
-| Recitation audio | _TBD_ | _TBD_ | planned | — | — |
+| Recitation audio | Quran.com API v4 recitations; files from verses.quran.com (9 reciters, list in `assets/quran/reciters.json`, built by `tool/fetch_reciters.py`) | ⚠️ Reciters'/publishers' rights. Confirm reuse terms with Quran.com / QuranicAudio before release | imported (streamed / downloaded on demand, not bundled) | — | — |
 | Tajweed lessons | _TBD_ | _TBD_ | planned | — | — |
 | Makhraj lessons | _TBD_ | _TBD_ | planned | — | — |
 
@@ -49,4 +49,5 @@ character U+FDFD rendered with the Amiri font. It is not hand-typed text.
 
 - [ ] Written permission for the Bengali translation
 - [ ] Confirm Quran.com word-by-word reuse terms
+- [ ] Confirm recitation audio reuse terms (Quran.com / QuranicAudio)
 - [ ] Scholar review of the app's presentation of the text (name, date above)

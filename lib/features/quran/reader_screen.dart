@@ -10,6 +10,8 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/bn.dart';
 import '../../core/widgets/common.dart';
+import '../audio/audio_player.dart';
+import '../audio/audio_widgets.dart';
 import '../progress/progress_store.dart';
 import 'data/quran_models.dart';
 import 'data/quran_repository.dart';
@@ -28,17 +30,20 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
   final _positions = ItemPositionsListener.create();
   bool _wordByWord = false;
   int _verseCount = 0;
+  int _firstVisibleVerse = 1;
 
   // Reading time: counted in 15 s ticks while the app is in the foreground.
   static const _tick = 15;
   Timer? _timer;
   late final AppLifecycleListener _lifecycle;
   late final ProgressNotifier _progress;
+  late final RecitationNotifier _recitation;
 
   @override
   void initState() {
     super.initState();
     _progress = ref.read(progressProvider.notifier);
+    _recitation = ref.read(recitationProvider.notifier);
     _positions.itemPositions.addListener(_onScroll);
     _startTimer();
     _lifecycle = AppLifecycleListener(
@@ -64,6 +69,7 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
     final visible = items.where((p) => p.itemTrailingEdge > 0.05).toList()
       ..sort((a, b) => a.index.compareTo(b.index));
     if (visible.isEmpty) return;
+    _firstVisibleVerse = visible.first.index;
     final fully = items
         .where((p) => p.itemLeadingEdge >= 0 && p.itemTrailingEdge <= 1)
         .map((p) => p.index);
@@ -76,11 +82,31 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
     _lifecycle.dispose();
     _positions.itemPositions.removeListener(_onScroll);
     _progress.flush();
+    _recitation.stop();
     super.dispose();
+  }
+
+  void _followRecitation(RecitationState? prev, RecitationState next) {
+    if (next.error != null && prev?.error != next.error) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(next.error!)));
+    }
+    final v = next.verse;
+    if (next.surah != widget.surah || v == null || v == prev?.verse) return;
+    final shown = _positions.itemPositions.value.any((p) =>
+        p.index == v && p.itemLeadingEdge >= 0 && p.itemTrailingEdge <= 0.9);
+    if (!shown && _scroll.isAttached) {
+      _scroll.scrollTo(
+          index: v,
+          alignment: 0.05,
+          duration: const Duration(milliseconds: 450),
+          curve: Curves.easeOutCubic);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(recitationProvider, _followRecitation);
     final meta = ref.watch(quranMetaProvider).value;
     final verses = ref.watch(surahVersesProvider(widget.surah));
     final info = meta?.surah(widget.surah);
@@ -89,6 +115,11 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
       appBar: AppBar(
         title: Text(info?.nameLatin ?? ''),
         actions: [
+          if (info != null) ...[
+            _PlaySurahButton(info: info, firstVisible: () => _firstVisibleVerse),
+            DownloadSurahButton(
+                surah: info.number, verseCount: info.verseCount),
+          ],
           IconButton(
             tooltip: 'শব্দে শব্দে অর্থ',
             isSelected: _wordByWord,
@@ -104,6 +135,7 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: MiniPlayer(surahName: info?.nameLatin ?? ''),
       body: (meta == null || info == null)
           ? const Center(child: CircularProgressIndicator())
           : verses.when(
@@ -226,9 +258,17 @@ class _VerseCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final s = ref.watch(settingsProvider);
     final cs = Theme.of(context).colorScheme;
+    final playing = ref.watch(recitationProvider
+        .select((r) => r.isPlayingVerse(surah.number, verse.number)));
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 6, 16, 6),
       child: Card(
+        color: playing ? cs.primaryContainer.withValues(alpha: 0.55) : null,
+        shape: playing
+            ? RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+                side: const BorderSide(color: AppColors.gold, width: 1.5))
+            : null,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
           child: Column(
@@ -258,6 +298,19 @@ class _VerseCard extends ConsumerWidget {
                             color: AppColors.goldDeep)),
                   ],
                   const Spacer(),
+                  IconButton(
+                    visualDensity: VisualDensity.compact,
+                    tooltip: 'এই আয়াত থেকে শুনুন',
+                    icon: Icon(
+                        playing
+                            ? Icons.graphic_eq_rounded
+                            : Icons.play_circle_outline_rounded,
+                        size: 20,
+                        color: playing ? AppColors.gold : cs.onSurfaceVariant),
+                    onPressed: () => ref
+                        .read(recitationProvider.notifier)
+                        .play(surah.number, verse.number, surah.verseCount),
+                  ),
                   _BookmarkButton(ref: VerseRef(surah.number, verse.number)),
                   IconButton(
                     visualDensity: VisualDensity.compact,
@@ -392,6 +445,30 @@ class _BookmarkButton extends ConsumerWidget {
             content: Text(marked ? 'বুকমার্ক সরানো হয়েছে' : 'বুকমার্ক করা হয়েছে'),
           ));
       },
+    );
+  }
+}
+
+class _PlaySurahButton extends ConsumerWidget {
+  const _PlaySurahButton({required this.info, required this.firstVisible});
+  final SurahInfo info;
+  final int Function() firstVisible;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final st = ref.watch(recitationProvider);
+    final mine = st.active && st.surah == info.number;
+    final n = ref.read(recitationProvider.notifier);
+    return IconButton(
+      tooltip: mine ? 'তিলাওয়াত বন্ধ' : 'তিলাওয়াত শুনুন',
+      icon: Icon(
+        mine ? Icons.stop_circle_outlined : Icons.headphones_rounded,
+        color: mine ? AppColors.gold : null,
+      ),
+      onPressed: () => mine
+          ? n.stop()
+          : n.play(info.number, firstVisible().clamp(1, info.verseCount),
+              info.verseCount),
     );
   }
 }

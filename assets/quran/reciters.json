@@ -1,0 +1,60 @@
+{
+ "_source": "Quran.com API v4 recitations; audio served from verses.quran.com",
+ "default": 7,
+ "reciters": [
+  {
+   "id": 1,
+   "name": "AbdulBaset AbdulSamad",
+   "style": "মুজাওয়াদ",
+   "url": "https://verses.quran.com/AbdulBaset/Mujawwad/mp3"
+  },
+  {
+   "id": 2,
+   "name": "AbdulBaset AbdulSamad",
+   "style": "মুরাত্তাল",
+   "url": "https://verses.quran.com/AbdulBaset/Murattal/mp3"
+  },
+  {
+   "id": 3,
+   "name": "Abdur-Rahman as-Sudais",
+   "style": "",
+   "url": "https://verses.quran.com/Sudais/mp3"
+  },
+  {
+   "id": 4,
+   "name": "Abu Bakr al-Shatri",
+   "style": "",
+   "url": "https://verses.quran.com/Shatri/mp3"
+  },
+  {
+   "id": 5,
+   "name": "Hani ar-Rifai",
+   "style": "",
+   "url": "https://verses.quran.com/Rifai/mp3"
+  },
+  {
+   "id": 7,
+   "name": "Mishari Rashid al-`Afasy",
+   "style": "",
+   "url": "https://verses.quran.com/Alafasy/mp3"
+  },
+  {
+   "id": 8,
+   "name": "Mohamed Siddiq al-Minshawi",
+   "style": "মুজাওয়াদ",
+   "url": "https://verses.quran.com/Minshawi/Mujawwad/mp3"
+  },
+  {
+   "id": 9,
+   "name": "Mohamed Siddiq al-Minshawi",
+   "style": "মুরাত্তাল",
+   "url": "https://verses.quran.com/Minshawi/Murattal/mp3"
+  },
+  {
+   "id": 10,
+   "name": "Sa`ud ash-Shuraym",
+   "style": "",
+   "url": "https://verses.quran.com/Shuraym/mp3"
+  }
+ ]
+}

@@ -7,6 +7,8 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/bn.dart';
 import '../../core/widgets/common.dart';
+import '../audio/audio_widgets.dart';
+import '../audio/reciters.dart';
 import '../progress/progress_store.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -166,6 +168,17 @@ class ProfileScreen extends ConsumerWidget {
               ),
             ),
           ),
+          const SectionHeader('তিলাওয়াত'),
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: ListTile(
+              leading: Icon(Icons.headphones_rounded, color: cs.primary),
+              title: const Text('ক্বারী'),
+              subtitle: Text(ref.watch(currentReciterProvider)?.label() ?? ''),
+              trailing: const Icon(Icons.chevron_right_rounded),
+              onTap: () => showReciterPicker(context),
+            ),
+          ),
           const SectionHeader('অন্যান্য'),
           Card(
             clipBehavior: Clip.antiAlias,
@@ -253,6 +266,7 @@ class ProfileScreen extends ConsumerWidget {
             'Quran.com-এর মাধ্যমে।\n\n'
             'শব্দে শব্দে অর্থ: Quran.com।\n\n'
             'সূরা ও পারার তথ্য: Quran.com।\n\n'
+            'তিলাওয়াত অডিও: Quran.com (verses.quran.com)।\n\n'
             'পড়ি অ্যাপে কোনো কুরআন টেক্সট বা অনুবাদ হাতে লেখা হয়নি।',
             style: TextStyle(height: 1.7),
           ),

@@ -15,6 +15,7 @@ class AppSettings {
     this.banglaFontSize = 16,
     this.showPronunciation = true,
     this.showTranslation = true,
+    this.reciterId = 7,
   });
 
   final ThemeMode themeMode;
@@ -23,12 +24,16 @@ class AppSettings {
   final bool showPronunciation;
   final bool showTranslation;
 
+  /// Quran.com recitation id (see assets/quran/reciters.json).
+  final int reciterId;
+
   AppSettings copyWith({
     ThemeMode? themeMode,
     double? arabicFontSize,
     double? banglaFontSize,
     bool? showPronunciation,
     bool? showTranslation,
+    int? reciterId,
   }) =>
       AppSettings(
         themeMode: themeMode ?? this.themeMode,
@@ -36,6 +41,7 @@ class AppSettings {
         banglaFontSize: banglaFontSize ?? this.banglaFontSize,
         showPronunciation: showPronunciation ?? this.showPronunciation,
         showTranslation: showTranslation ?? this.showTranslation,
+        reciterId: reciterId ?? this.reciterId,
       );
 }
 
@@ -45,6 +51,7 @@ class SettingsNotifier extends Notifier<AppSettings> {
   static const _kBangla = 'bangla_font_size';
   static const _kPron = 'show_pronunciation';
   static const _kTrans = 'show_translation';
+  static const _kReciter = 'reciter_id';
 
   SharedPreferences get _prefs => ref.read(sharedPrefsProvider);
 
@@ -57,6 +64,7 @@ class SettingsNotifier extends Notifier<AppSettings> {
       banglaFontSize: p.getDouble(_kBangla) ?? 16,
       showPronunciation: p.getBool(_kPron) ?? true,
       showTranslation: p.getBool(_kTrans) ?? true,
+      reciterId: p.getInt(_kReciter) ?? 7,
     );
   }
 
@@ -78,6 +86,11 @@ class SettingsNotifier extends Notifier<AppSettings> {
   void setShowPronunciation(bool v) {
     state = state.copyWith(showPronunciation: v);
     _prefs.setBool(_kPron, v);
+  }
+
+  void setReciter(int id) {
+    state = state.copyWith(reciterId: id);
+    _prefs.setInt(_kReciter, id);
   }
 
   void setShowTranslation(bool v) {
