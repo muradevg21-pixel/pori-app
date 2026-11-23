@@ -9,6 +9,7 @@ import '../../core/utils/bn.dart';
 import '../../core/widgets/common.dart';
 import '../audio/audio_widgets.dart';
 import '../audio/reciters.dart';
+import '../learn/data/learn_progress.dart';
 import '../progress/progress_store.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -73,7 +74,9 @@ class ProfileScreen extends ConsumerWidget {
                       progressProvider.select((p) => p.readVerses.length))),
                   label: 'আয়াত পড়া'),
               const SizedBox(width: 12),
-              _Stat(value: bn(0), label: 'পাঠ সম্পন্ন'),
+              _Stat(
+                  value: bn(completedLessons(ref.watch(learnProgressProvider))),
+                  label: 'পাঠ সম্পন্ন'),
             ],
           ),
           const SectionHeader('দেখার ধরন'),

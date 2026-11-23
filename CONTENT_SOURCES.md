@@ -22,8 +22,8 @@ qualified scholar before release.
 | Tafsir (bundled, offline) | Tafsir Ahsanul Bayaan (Bayaan Foundation) via Quran.com API v4, id 165. Stored verbatim (HTML) in `assets/tafsir/165/`, built by `tool/fetch_tafsir.py` | ⚠️ Publisher copyright. **Permission needed before Play Store release** | imported | — | — |
 | Tafsir (online, cached on device) | Abu Bakr Zakaria (id 166), Ibn Kathir – Tawheed Publication (id 164), Fathul Majid (id 381), fetched from Quran.com API on first use | ⚠️ Publisher copyright. Confirm with Quran.com / publishers before release | available on demand | — | — |
 | Recitation audio | Quran.com API v4 recitations; files from verses.quran.com (9 reciters, list in `assets/quran/reciters.json`, built by `tool/fetch_reciters.py`) | ⚠️ Reciters'/publishers' rights. Confirm reuse terms with Quran.com / QuranicAudio before release | imported (streamed / downloaded on demand, not bundled) | — | — |
-| Tajweed lessons | _TBD_ | _TBD_ | planned | — | — |
-| Makhraj lessons | _TBD_ | _TBD_ | planned | — | — |
+| Tajweed lessons (7) | DRAFT written for PORI (`tool/build_lessons.py` → `assets/learn/courses.json`). Quran examples are verse references, words shown from the verified data | Own content | ⚠️ draft — **needs Qari/Alim review** | — | — |
+| Makhraj lessons (4) + Arabic letters (2) + quizzes (33 questions) | DRAFT written for PORI (same file) | Own content | ⚠️ draft — **needs Qari/Alim review** | — | — |
 
 ## Fonts & assets
 
@@ -52,4 +52,7 @@ character U+FDFD rendered with the Amiri font. It is not hand-typed text.
 - [ ] Confirm Quran.com word-by-word reuse terms
 - [ ] Confirm recitation audio reuse terms (Quran.com / QuranicAudio)
 - [ ] Permission for tafsir texts (Ahsanul Bayaan bundled; others streamed)
+- [ ] Qari/Alim review of every lesson and quiz. To mark one reviewed, set its
+      `review` to `{"status": "reviewed", "reviewer": "<name>", "date": "<yyyy-mm-dd>"}`
+      in `tool/build_lessons.py` and rebuild.
 - [ ] Scholar review of the app's presentation of the text (name, date above)
