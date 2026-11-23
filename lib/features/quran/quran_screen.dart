@@ -7,6 +7,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/bn.dart';
 import '../../core/widgets/islamic_pattern.dart';
+import '../progress/progress_store.dart';
 import 'data/quran_models.dart';
 import 'data/quran_repository.dart';
 
@@ -92,13 +93,15 @@ class _SurahList extends StatelessWidget {
   }
 }
 
-class SurahTile extends StatelessWidget {
+class SurahTile extends ConsumerWidget {
   const SurahTile({super.key, required this.surah});
   final SurahInfo surah;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final cs = Theme.of(context).colorScheme;
+    final read = ref.watch(
+        progressProvider.select((p) => p.readCountInSurah(surah.number)));
     return Card(
       clipBehavior: Clip.antiAlias,
       child: InkWell(
@@ -122,6 +125,18 @@ class SurahTile extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 13, color: cs.onSurfaceVariant),
                     ),
+                    if (read > 0) ...[
+                      const SizedBox(height: 6),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: LinearProgressIndicator(
+                          value: read / surah.verseCount,
+                          minHeight: 4,
+                          color: AppColors.gold,
+                          backgroundColor: cs.outlineVariant,
+                        ),
+                      ),
+                    ],
                   ],
                 ),
               ),

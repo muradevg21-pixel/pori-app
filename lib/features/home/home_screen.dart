@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -5,6 +6,8 @@ import '../../core/router/app_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/bn.dart';
 import '../../core/widgets/common.dart';
+import '../progress/progress_store.dart';
+import '../quran/data/quran_repository.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -55,8 +58,7 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-                child: _ContinueReadingCard(
-                    onTap: () => context.go(Routes.quran)),
+                child: const _ContinueReadingCard(),
               ),
             ),
             const SliverToBoxAdapter(child: SectionHeader('দ্রুত শুরু করুন')),
@@ -87,7 +89,13 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: _DailyGoalCard(minutesDone: 0, minutesGoal: 15),
+                child: Consumer(
+                  builder: (_, ref, _) => _DailyGoalCard(
+                    minutesDone: ref.watch(progressProvider
+                        .select((p) => p.minutesOn(DateTime.now()))),
+                    minutesGoal: 15,
+                  ),
+                ),
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 32)),
@@ -98,14 +106,24 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class _ContinueReadingCard extends StatelessWidget {
-  const _ContinueReadingCard({required this.onTap});
-  final VoidCallback onTap;
+class _ContinueReadingCard extends ConsumerWidget {
+  const _ContinueReadingCard();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final last = ref.watch(progressProvider.select((p) => p.lastRead));
+    final totalRead =
+        ref.watch(progressProvider.select((p) => p.readVerses.length));
+    final meta = ref.watch(quranMetaProvider).value;
+    final surah = (last != null && meta != null) ? meta.surah(last.surah) : null;
+    final started = surah != null;
+
+    void open() => started
+        ? context.push(Routes.reader(last!.surah, verse: last.verse))
+        : context.push(Routes.reader(1));
+
     return GestureDetector(
-      onTap: onTap,
+      onTap: open,
       child: EmeraldBanner(
         child: Row(
           children: [
@@ -117,22 +135,25 @@ class _ContinueReadingCard extends StatelessWidget {
                     const Icon(Icons.auto_awesome_rounded,
                         size: 16, color: AppColors.goldLight),
                     const SizedBox(width: 6),
-                    Text('পড়া চালিয়ে যান',
+                    Text(started ? 'সর্বশেষ পড়া' : 'পড়া শুরু করুন',
                         style: TextStyle(
                             fontSize: 13,
                             color: AppColors.cream.withValues(alpha: 0.85))),
                   ]),
                   const SizedBox(height: 10),
-                  const Text('আজই কুরআন পড়া শুরু করুন',
-                      style: TextStyle(
+                  Text(started ? surah.nameLatin : 'আজই কুরআন পড়া শুরু করুন',
+                      style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                           color: AppColors.cream)),
                   const SizedBox(height: 6),
-                  Text('আপনার পড়ার অগ্রগতি এখানে দেখা যাবে',
+                  Text(
+                      started
+                          ? '${surah.meaningBn} · আয়াত ${bn(last!.verse)} / ${bn(surah.verseCount)}'
+                          : 'সূরা আল-ফাতিহা থেকে শুরু করুন',
                       style: TextStyle(
                           fontSize: 13,
-                          color: AppColors.cream.withValues(alpha: 0.7))),
+                          color: AppColors.cream.withValues(alpha: 0.75))),
                   const SizedBox(height: 16),
                   FilledButton.icon(
                     style: FilledButton.styleFrom(
@@ -140,26 +161,45 @@ class _ContinueReadingCard extends StatelessWidget {
                       foregroundColor: AppColors.emerald950,
                       shape: const StadiumBorder(),
                     ),
-                    onPressed: onTap,
+                    onPressed: open,
                     icon: const Icon(Icons.play_arrow_rounded),
-                    label: const Text('শুরু করুন',
-                        style: TextStyle(fontWeight: FontWeight.w700)),
+                    label: Text(started ? 'চালিয়ে যান' : 'শুরু করুন',
+                        style: const TextStyle(fontWeight: FontWeight.w700)),
                   ),
                 ],
               ),
             ),
             const SizedBox(width: 8),
-            Container(
-              width: 84,
-              height: 84,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColors.emerald950.withValues(alpha: 0.3),
-                border: Border.all(
-                    color: AppColors.gold.withValues(alpha: 0.7), width: 1.2),
+            SizedBox.square(
+              dimension: 88,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  CircularProgressIndicator(
+                    value: totalRead / 6236,
+                    strokeWidth: 5,
+                    strokeCap: StrokeCap.round,
+                    color: AppColors.gold,
+                    backgroundColor: AppColors.emerald950.withValues(alpha: 0.4),
+                  ),
+                  Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('${bn((totalRead * 100 / 6236).toStringAsFixed(totalRead == 0 ? 0 : 1))}%',
+                            style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.cream)),
+                        Text('পুরো কুরআন',
+                            style: TextStyle(
+                                fontSize: 10,
+                                color: AppColors.cream.withValues(alpha: 0.7))),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              child: const Icon(Icons.menu_book_rounded,
-                  size: 40, color: AppColors.goldLight),
             ),
           ],
         ),
@@ -212,7 +252,8 @@ class _DailyGoalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final progress = minutesGoal == 0 ? 0.0 : minutesDone / minutesGoal;
+    final progress =
+        minutesGoal == 0 ? 0.0 : (minutesDone / minutesGoal).clamp(0.0, 1.0);
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(18),

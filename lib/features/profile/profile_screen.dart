@@ -7,6 +7,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/bn.dart';
 import '../../core/widgets/common.dart';
+import '../progress/progress_store.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
@@ -60,9 +61,15 @@ class ProfileScreen extends ConsumerWidget {
           const SizedBox(height: 12),
           Row(
             children: [
-              _Stat(value: bn(0), label: 'দিন ধারাবাহিক'),
+              _Stat(
+                  value: bn(ref.watch(progressProvider
+                      .select((p) => p.streak(DateTime.now())))),
+                  label: 'দিন ধারাবাহিক'),
               const SizedBox(width: 12),
-              _Stat(value: bn(0), label: 'আয়াত পড়া'),
+              _Stat(
+                  value: bn(ref.watch(
+                      progressProvider.select((p) => p.readVerses.length))),
+                  label: 'আয়াত পড়া'),
               const SizedBox(width: 12),
               _Stat(value: bn(0), label: 'পাঠ সম্পন্ন'),
             ],

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
@@ -8,6 +10,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/bn.dart';
 import '../../core/widgets/common.dart';
+import '../progress/progress_store.dart';
 import 'data/quran_models.dart';
 import 'data/quran_repository.dart';
 
@@ -22,7 +25,59 @@ class ReaderScreen extends ConsumerStatefulWidget {
 
 class _ReaderScreenState extends ConsumerState<ReaderScreen> {
   final _scroll = ItemScrollController();
+  final _positions = ItemPositionsListener.create();
   bool _wordByWord = false;
+  int _verseCount = 0;
+
+  // Reading time: counted in 15 s ticks while the app is in the foreground.
+  static const _tick = 15;
+  Timer? _timer;
+  late final AppLifecycleListener _lifecycle;
+  late final ProgressNotifier _progress;
+
+  @override
+  void initState() {
+    super.initState();
+    _progress = ref.read(progressProvider.notifier);
+    _positions.itemPositions.addListener(_onScroll);
+    _startTimer();
+    _lifecycle = AppLifecycleListener(
+      onResume: _startTimer,
+      onPause: () {
+        _timer?.cancel();
+        _progress.flush();
+      },
+    );
+  }
+
+  void _startTimer() {
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: _tick),
+        (_) => _progress.addReadingSeconds(_tick));
+  }
+
+  void _onScroll() {
+    if (_verseCount == 0) return;
+    final items = _positions.itemPositions.value
+        .where((p) => p.index >= 1 && p.index <= _verseCount);
+    if (items.isEmpty) return;
+    final visible = items.where((p) => p.itemTrailingEdge > 0.05).toList()
+      ..sort((a, b) => a.index.compareTo(b.index));
+    if (visible.isEmpty) return;
+    final fully = items
+        .where((p) => p.itemLeadingEdge >= 0 && p.itemTrailingEdge <= 1)
+        .map((p) => p.index);
+    _progress.onVersesViewed(widget.surah, visible.first.index, fully);
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _lifecycle.dispose();
+    _positions.itemPositions.removeListener(_onScroll);
+    _progress.flush();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,11 +111,13 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
               error: (e, _) => Center(child: Text('লোড করা যায়নি: $e')),
               data: (list) => ScrollablePositionedList.builder(
                 itemScrollController: _scroll,
+                itemPositionsListener: _positions,
                 initialScrollIndex: (widget.initialVerse ?? 0)
                     .clamp(0, list.length),
                 padding: const EdgeInsets.only(bottom: 32),
                 itemCount: list.length + 2,
                 itemBuilder: (context, i) {
+                  _verseCount = list.length;
                   if (i == 0) return _SurahHeader(info: info, meta: meta);
                   if (i == list.length + 1) return const _SourceFooter();
                   return _VerseCard(
@@ -201,6 +258,7 @@ class _VerseCard extends ConsumerWidget {
                             color: AppColors.goldDeep)),
                   ],
                   const Spacer(),
+                  _BookmarkButton(ref: VerseRef(surah.number, verse.number)),
                   IconButton(
                     visualDensity: VisualDensity.compact,
                     tooltip: 'কপি',
@@ -305,4 +363,35 @@ class _SourceFooter extends StatelessWidget {
               color: Theme.of(context).colorScheme.onSurfaceVariant),
         ),
       );
+}
+
+class _BookmarkButton extends ConsumerWidget {
+  const _BookmarkButton({required this.ref});
+  final VerseRef ref;
+
+  @override
+  Widget build(BuildContext context, WidgetRef wr) {
+    final marked =
+        wr.watch(progressProvider.select((p) => p.isBookmarked(ref)));
+    return IconButton(
+      visualDensity: VisualDensity.compact,
+      tooltip: marked ? 'বুকমার্ক সরান' : 'বুকমার্ক করুন',
+      icon: Icon(
+        marked ? Icons.bookmark_rounded : Icons.bookmark_border_rounded,
+        size: 20,
+        color: marked
+            ? AppColors.gold
+            : Theme.of(context).colorScheme.onSurfaceVariant,
+      ),
+      onPressed: () {
+        wr.read(progressProvider.notifier).toggleBookmark(ref);
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(SnackBar(
+            duration: const Duration(seconds: 1),
+            content: Text(marked ? 'বুকমার্ক সরানো হয়েছে' : 'বুকমার্ক করা হয়েছে'),
+          ));
+      },
+    );
+  }
 }
