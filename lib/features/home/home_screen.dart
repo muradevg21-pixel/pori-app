@@ -1,0 +1,261 @@
+import 'package:go_router/go_router.dart';
+import 'package:material_ui/material_ui.dart';
+
+import '../../core/router/app_router.dart';
+import '../../core/theme/app_colors.dart';
+import '../../core/utils/bn.dart';
+import '../../core/widgets/common.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Scaffold(
+      body: SafeArea(
+        bottom: false,
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 16, 12, 0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('আসসালামু আলাইকুম',
+                              style: TextStyle(
+                                  fontSize: 14, color: cs.onSurfaceVariant)),
+                          const Text('পড়ি',
+                              style: TextStyle(
+                                  fontSize: 28,
+                                  height: 1.3,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.emerald700)),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.search_rounded),
+                      tooltip: 'খুঁজুন',
+                    ),
+                    IconButton(
+                      onPressed: () => context.go(Routes.profile),
+                      icon: const Icon(Icons.settings_outlined),
+                      tooltip: 'সেটিংস',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+                child: _ContinueReadingCard(
+                    onTap: () => context.go(Routes.quran)),
+              ),
+            ),
+            const SliverToBoxAdapter(child: SectionHeader('দ্রুত শুরু করুন')),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              sliver: SliverGrid.count(
+                crossAxisCount: 3,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                childAspectRatio: 0.95,
+                children: [
+                  _QuickAction(Icons.menu_book_rounded, 'কুরআন',
+                      () => context.go(Routes.quran)),
+                  _QuickAction(Icons.auto_stories_rounded, 'তাজবীদ',
+                      () => context.go(Routes.learn)),
+                  _QuickAction(Icons.record_voice_over_rounded, 'মাখরাজ',
+                      () => context.go(Routes.learn)),
+                  _QuickAction(Icons.headphones_rounded, 'তিলাওয়াত',
+                      () => context.go(Routes.quran)),
+                  _QuickAction(Icons.workspace_premium_rounded, 'কোর্স',
+                      () => context.go(Routes.learn)),
+                  _QuickAction(Icons.quiz_rounded, 'কুইজ',
+                      () => context.go(Routes.learn)),
+                ],
+              ),
+            ),
+            const SliverToBoxAdapter(child: SectionHeader('আজকের লক্ষ্য')),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: _DailyGoalCard(minutesDone: 0, minutesGoal: 15),
+              ),
+            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ContinueReadingCard extends StatelessWidget {
+  const _ContinueReadingCard({required this.onTap});
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: EmeraldBanner(
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(children: [
+                    const Icon(Icons.auto_awesome_rounded,
+                        size: 16, color: AppColors.goldLight),
+                    const SizedBox(width: 6),
+                    Text('পড়া চালিয়ে যান',
+                        style: TextStyle(
+                            fontSize: 13,
+                            color: AppColors.cream.withValues(alpha: 0.85))),
+                  ]),
+                  const SizedBox(height: 10),
+                  const Text('আজই কুরআন পড়া শুরু করুন',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.cream)),
+                  const SizedBox(height: 6),
+                  Text('আপনার পড়ার অগ্রগতি এখানে দেখা যাবে',
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: AppColors.cream.withValues(alpha: 0.7))),
+                  const SizedBox(height: 16),
+                  FilledButton.icon(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: AppColors.emerald950,
+                      shape: const StadiumBorder(),
+                    ),
+                    onPressed: onTap,
+                    icon: const Icon(Icons.play_arrow_rounded),
+                    label: const Text('শুরু করুন',
+                        style: TextStyle(fontWeight: FontWeight.w700)),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            Container(
+              width: 84,
+              height: 84,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.emerald950.withValues(alpha: 0.3),
+                border: Border.all(
+                    color: AppColors.gold.withValues(alpha: 0.7), width: 1.2),
+              ),
+              child: const Icon(Icons.menu_book_rounded,
+                  size: 40, color: AppColors.goldLight),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _QuickAction extends StatelessWidget {
+  const _QuickAction(this.icon, this.label, this.onTap);
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                color: cs.primaryContainer,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: Icon(icon, color: cs.primary),
+            ),
+            const SizedBox(height: 10),
+            Text(label,
+                style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DailyGoalCard extends StatelessWidget {
+  const _DailyGoalCard({required this.minutesDone, required this.minutesGoal});
+  final int minutesDone;
+  final int minutesGoal;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final progress = minutesGoal == 0 ? 0.0 : minutesDone / minutesGoal;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Row(
+          children: [
+            SizedBox.square(
+              dimension: 64,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  CircularProgressIndicator(
+                    value: progress,
+                    strokeWidth: 6,
+                    backgroundColor: cs.outlineVariant,
+                    color: AppColors.gold,
+                    strokeCap: StrokeCap.round,
+                  ),
+                  Center(
+                    child: Text('${bn((progress * 100).round())}%',
+                        style: const TextStyle(fontWeight: FontWeight.w700)),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 18),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('প্রতিদিন ${bn(minutesGoal)} মিনিট পড়া',
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.w700)),
+                  const SizedBox(height: 4),
+                  Text('আজ ${bn(minutesDone)} মিনিট পড়েছেন',
+                      style: TextStyle(color: cs.onSurfaceVariant)),
+                ],
+              ),
+            ),
+            Icon(Icons.local_fire_department_rounded,
+                color: AppColors.gold, size: 28),
+          ],
+        ),
+      ),
+    );
+  }
+}
