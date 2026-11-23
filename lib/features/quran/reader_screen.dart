@@ -13,6 +13,7 @@ import '../../core/widgets/common.dart';
 import '../audio/audio_player.dart';
 import '../audio/audio_widgets.dart';
 import '../progress/progress_store.dart';
+import '../tafsir/tafsir_sheet.dart';
 import 'data/quran_models.dart';
 import 'data/quran_repository.dart';
 
@@ -310,6 +311,13 @@ class _VerseCard extends ConsumerWidget {
                     onPressed: () => ref
                         .read(recitationProvider.notifier)
                         .play(surah.number, verse.number, surah.verseCount),
+                  ),
+                  IconButton(
+                    visualDensity: VisualDensity.compact,
+                    tooltip: 'তাফসীর',
+                    icon: Icon(Icons.article_outlined,
+                        size: 20, color: cs.onSurfaceVariant),
+                    onPressed: () => showTafsir(context, surah, verse),
                   ),
                   _BookmarkButton(ref: VerseRef(surah.number, verse.number)),
                   IconButton(

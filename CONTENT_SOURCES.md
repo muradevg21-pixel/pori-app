@@ -19,7 +19,8 @@ qualified scholar before release.
 | Bengali translation | Taisirul Quran (Tawheed Publication) via Quran.com API v4, id 161 | ⚠️ Publisher copyright. **Written permission from Tawheed Publication / Quran.com needed before Play Store release** | imported | — | — |
 | Bengali pronunciation | _No verified source chosen yet_ | _TBD_ | planned | — | — |
 | Word-by-word meaning (bn) | Quran.com API v4 word translations | ⚠️ Confirm reuse terms with Quran.com before release | imported | — | — |
-| Tafsir | _TBD_ | _TBD_ | planned | — | — |
+| Tafsir (bundled, offline) | Tafsir Ahsanul Bayaan (Bayaan Foundation) via Quran.com API v4, id 165. Stored verbatim (HTML) in `assets/tafsir/165/`, built by `tool/fetch_tafsir.py` | ⚠️ Publisher copyright. **Permission needed before Play Store release** | imported | — | — |
+| Tafsir (online, cached on device) | Abu Bakr Zakaria (id 166), Ibn Kathir – Tawheed Publication (id 164), Fathul Majid (id 381), fetched from Quran.com API on first use | ⚠️ Publisher copyright. Confirm with Quran.com / publishers before release | available on demand | — | — |
 | Recitation audio | Quran.com API v4 recitations; files from verses.quran.com (9 reciters, list in `assets/quran/reciters.json`, built by `tool/fetch_reciters.py`) | ⚠️ Reciters'/publishers' rights. Confirm reuse terms with Quran.com / QuranicAudio before release | imported (streamed / downloaded on demand, not bundled) | — | — |
 | Tajweed lessons | _TBD_ | _TBD_ | planned | — | — |
 | Makhraj lessons | _TBD_ | _TBD_ | planned | — | — |
@@ -50,4 +51,5 @@ character U+FDFD rendered with the Amiri font. It is not hand-typed text.
 - [ ] Written permission for the Bengali translation
 - [ ] Confirm Quran.com word-by-word reuse terms
 - [ ] Confirm recitation audio reuse terms (Quran.com / QuranicAudio)
+- [ ] Permission for tafsir texts (Ahsanul Bayaan bundled; others streamed)
 - [ ] Scholar review of the app's presentation of the text (name, date above)

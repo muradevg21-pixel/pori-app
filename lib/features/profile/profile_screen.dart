@@ -267,6 +267,8 @@ class ProfileScreen extends ConsumerWidget {
             'শব্দে শব্দে অর্থ: Quran.com।\n\n'
             'সূরা ও পারার তথ্য: Quran.com।\n\n'
             'তিলাওয়াত অডিও: Quran.com (verses.quran.com)।\n\n'
+            'তাফসীর: আহসানুল বায়ান (অফলাইন), আবু বকর যাকারিয়া, ইবনে কাসীর, '
+            'ফাতহুল মাজীদ — Quran.com-এর মাধ্যমে।\n\n'
             'পড়ি অ্যাপে কোনো কুরআন টেক্সট বা অনুবাদ হাতে লেখা হয়নি।',
             style: TextStyle(height: 1.7),
           ),

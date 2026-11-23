@@ -16,6 +16,7 @@ class AppSettings {
     this.showPronunciation = true,
     this.showTranslation = true,
     this.reciterId = 7,
+    this.tafsirId = 165,
   });
 
   final ThemeMode themeMode;
@@ -27,6 +28,9 @@ class AppSettings {
   /// Quran.com recitation id (see assets/quran/reciters.json).
   final int reciterId;
 
+  /// Quran.com tafsir id (see features/tafsir/tafsir_repository.dart).
+  final int tafsirId;
+
   AppSettings copyWith({
     ThemeMode? themeMode,
     double? arabicFontSize,
@@ -34,6 +38,7 @@ class AppSettings {
     bool? showPronunciation,
     bool? showTranslation,
     int? reciterId,
+    int? tafsirId,
   }) =>
       AppSettings(
         themeMode: themeMode ?? this.themeMode,
@@ -42,6 +47,7 @@ class AppSettings {
         showPronunciation: showPronunciation ?? this.showPronunciation,
         showTranslation: showTranslation ?? this.showTranslation,
         reciterId: reciterId ?? this.reciterId,
+        tafsirId: tafsirId ?? this.tafsirId,
       );
 }
 
@@ -52,6 +58,7 @@ class SettingsNotifier extends Notifier<AppSettings> {
   static const _kPron = 'show_pronunciation';
   static const _kTrans = 'show_translation';
   static const _kReciter = 'reciter_id';
+  static const _kTafsir = 'tafsir_id';
 
   SharedPreferences get _prefs => ref.read(sharedPrefsProvider);
 
@@ -65,6 +72,7 @@ class SettingsNotifier extends Notifier<AppSettings> {
       showPronunciation: p.getBool(_kPron) ?? true,
       showTranslation: p.getBool(_kTrans) ?? true,
       reciterId: p.getInt(_kReciter) ?? 7,
+      tafsirId: p.getInt(_kTafsir) ?? 165,
     );
   }
 
@@ -91,6 +99,11 @@ class SettingsNotifier extends Notifier<AppSettings> {
   void setReciter(int id) {
     state = state.copyWith(reciterId: id);
     _prefs.setInt(_kReciter, id);
+  }
+
+  void setTafsir(int id) {
+    state = state.copyWith(tafsirId: id);
+    _prefs.setInt(_kTafsir, id);
   }
 
   void setShowTranslation(bool v) {
